@@ -1,0 +1,260 @@
+{
+	"info": {
+		"_postman_id": "807f5b21-4369-4951-9579-9e052881bbba",
+		"name": "test_apis",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12630958"
+	},
+	"item": [
+		{
+			"name": "Creating a new request for Asset",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"source\": \"Bangalore\",\n    \"destination\": \"Mumbai\",\n    \"datetime\": \"2023-01-02 02:55:59.516700+00:00\",\n    \"no_of_assets\": 12,\n    \"asset_type\": \"laptop\",\n    \"asset_sensitivity\": \"high\",\n    \"status\": \"expired\",\n    \"whom_to_deliver\": \"837493473434-Son of Anton\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9001/requester/transport-asset/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"requester",
+						"transport-asset",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listing Request Assets",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"source\": \"Bangalore\",\n    \"destination\": \"Mumbai\",\n    \"pick_on\": \"2022-12- 02:55:59.516700+00:00\",\n    \"no_of_assets\": 12,\n    \"asset_type\": \"laptop\",\n    \"asset_sensitivity\": \"high\",\n    \"status\": \"pending\",\n    \"whom_to_deliver\": \"837493473434-Son of Anton\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9001/requester/transport-asset/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"requester",
+						"transport-asset",
+						""
+					],
+					"query": [
+						{
+							"key": "page_size",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "page",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "ordering",
+							"value": "-ride_info__datetime",
+							"disabled": true
+						},
+						{
+							"key": "status",
+							"value": "expired",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a Ride",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"source\": \"Bangalore\",\n    \"destination\": \"Mumbai\",\n    \"datetime\": \"2023-01-03 02:55:59.516700+00:00\",\n    \"no_of_assets\": 12,\n    \"travel_medium\": \"bus\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9001/rider/travel-info/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"rider",
+						"travel-info",
+						""
+					],
+					"query": [
+						{
+							"key": "page_size",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "page",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "ordering",
+							"value": "pick_on",
+							"disabled": true
+						},
+						{
+							"key": "status",
+							"value": "expired",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Accept a Ride",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"status\": \"applied\",\n    \"ride_accepted_by\": \"324234-sodledlr\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9001/rider/travel-info/12e0ce2f-4f20-4d56-8d46-dfa40091b923/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"rider",
+						"travel-info",
+						"12e0ce2f-4f20-4d56-8d46-dfa40091b923",
+						""
+					],
+					"query": [
+						{
+							"key": "page_size",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "page",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "ordering",
+							"value": "pick_on",
+							"disabled": true
+						},
+						{
+							"key": "status",
+							"value": "expired",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List all Rides",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"source\": \"Bangalore\",\n    \"destination\": \"Mumbai\",\n    \"traveling_on\": \"2023-01-04 02:55:59.516700+00:00\",\n    \"no_of_assets\": 12,\n    \"travel_medium\": \"bus\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9001/rider/travel-info/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"rider",
+						"travel-info",
+						""
+					],
+					"query": [
+						{
+							"key": "page_size",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "page",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "ordering",
+							"value": "pick_on",
+							"disabled": true
+						},
+						{
+							"key": "status",
+							"value": "expired",
+							"disabled": true
+						},
+						{
+							"key": "matched_rides_only",
+							"value": "true",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
